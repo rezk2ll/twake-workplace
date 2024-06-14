@@ -3,4 +3,4 @@ declare module '*.svg?component' {
 	export default content;
 }
 
-declare module '@k4ung/svelte-otp';
+declare module 'svelte-num-otp';
