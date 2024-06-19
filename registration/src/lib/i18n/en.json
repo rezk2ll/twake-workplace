@@ -34,7 +34,7 @@
   "Your phone number successfully confirmed": "Your phone number successfully confirmed",
   "Error": "Error",
   "Invalid credentials": "Invalid credentials",
-  "invalid Username": "invalid Username",
+  "invalid Username": "Invalid username: must be at least 3 characters and can only contain letters, numbers, and periods.",
   "accept terms and conditions": "accept terms and conditions",
   "invalid phone number": "the number you entered is invalid. Try again.",
   "login": "login",

@@ -33,7 +33,7 @@
   "Your phone number successfully confirmed": "تم تأكيد رقم هاتفك بنجاح.",
   "Error": "خطأ",
   "Invalid credentials": "بيانات الاعتماد غير صالحة",
-  "invalid Username": "اسم المستخدم غير صالح",
+  "invalid Username": "اسم المستخدم غير صالح: يجب أن يتكون من 3 أحرف على الأقل ويمكن أن يحتوي فقط على أحرف وأرقام ونقاط.",
   "accept terms and conditions": "قبول الشروط والأحكام",
   "invalid phone number": "الرقم الذي أدخلته غير صالح. حاول ثانية.",
   "login": "تسجيل الدخول",

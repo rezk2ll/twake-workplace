@@ -33,7 +33,7 @@
   "Your phone number successfully confirmed": "Số điện thoại của bạn đã được xác nhận thành công",
   "Error": "Lỗi",
   "Invalid credentials": "Thông tin không hợp lệ",
-  "invalid Username": "tên sử dụng không hợp lệ",
+  "invalid Username": "Tên người dùng không hợp lệ: phải có ít nhất 3 ký tự và chỉ có thể chứa chữ cái, số và dấu chấm.",
   "accept terms and conditions": "Chấp nhận các điều khoản và điều kiện",
   "invalid phone number": "Số bạn đã nhập không hợp lệ. Thử lại.",
   "login": "Đăng nhập",

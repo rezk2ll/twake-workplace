@@ -33,7 +33,7 @@
   "Your phone number successfully confirmed": "Votre numéro de téléphone confirmé avec succès",
   "Error": "Erreur",
   "Invalid credentials": "Informations d'identification invalides",
-  "invalid Username": "Nom d'utilisateur invalide",
+  "invalid Username": "Nom d'utilisateur invalide : doit comporter au moins 3 caractères et ne peut contenir que des lettres, des chiffres et des points.",
   "accept terms and conditions": "accepter les termes et conditions",
   "invalid phone number": "Le numéro que vous avez entré n'est pas valide. Essayer à nouveau.",
   "login": "connexion",
