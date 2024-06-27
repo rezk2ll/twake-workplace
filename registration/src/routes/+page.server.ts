@@ -54,13 +54,15 @@ export const load: PageServerLoad = async ({ locals, url, cookies, request, getC
 		if (await authService.verify(cookie)) {
 			logger.info('user is already authenticated, redirecting');
 
-			const redirectUrl = postLoginUrl
+			const destinationUrl = postLoginUrl ?? redirectUrl;
+
+			const location = destinationUrl
 				? app === 'chat'
-					? getOidcRedirectUrl(postLoginUrl)
-					: postLoginUrl
+					? getOidcRedirectUrl(destinationUrl)
+					: destinationUrl
 				: '/success';
 
-			throw redirect(302, redirectUrl);
+			throw redirect(302, location);
 		}
 	}
 
