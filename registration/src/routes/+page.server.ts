@@ -20,11 +20,9 @@ import logger from '$services/logger';
 import { DEMO_TOKEN } from '$utils/demo';
 
 export const load: PageServerLoad = async ({ locals, url, cookies, request, getClientAddress }) => {
-	const country = (
-		await getUserCountry(request.headers.get('x-forwarded-for') || getClientAddress())
-	).toLocaleLowerCase();
 	const { session } = locals;
-
+	const clientAddress = request.headers.get('x-forwarded-for') ?? getClientAddress();
+	const country = (await getUserCountry(clientAddress)).toLocaleLowerCase();
 	const redirectUrl = url.searchParams.get('post_registered_redirect_url') ?? undefined;
 	const postLoginUrl = url.searchParams.get('post_login_redirect_url') ?? undefined;
 	const app = (url.searchParams.get('app') as ApplicationType) ?? 'default';
@@ -45,9 +43,17 @@ export const load: PageServerLoad = async ({ locals, url, cookies, request, getC
 	}));
 
 	logger.info('detected context: ', {
+		clientAddress,
 		country,
 		redirectUrl: redirectUrl ?? postLoginUrl,
-		app
+		app,
+		headers: {
+			'x-forwarded-for': request.headers.get('x-forwarded-for'),
+			'user-agent': request.headers.get('user-agent'),
+			referer: request.headers.get('referer'),
+			host: request.headers.get('host'),
+			origin: request.headers.get('origin')
+		}
 	});
 
 	if (cookie) {
