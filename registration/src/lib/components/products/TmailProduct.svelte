@@ -7,11 +7,15 @@
 	};
 </script>
 
-<button on:click={open} type="button" class="flex flex-row space-x-5 bg-gray-100 p-5 rounded-3xl w-full cursor-pointer">
+<button
+	on:click={open}
+	type="button"
+	class="flex flex-row space-x-5 bg-gray-100 p-5 pt-4 rounded-3xl w-full cursor-pointer"
+>
 	<div class="shrink items-center justify-center">
 		<img src="/images/tmail.svg" alt="tmail" class="h-14 w-14" />
 	</div>
-	<div class="flex flex-col w-full items-start justify-start">
+	<div class="flex flex-col gap-2 w-full items-start justify-start">
 		<h1 class="hidden lg:block text-[22px] not-italic font-semibold leading-7 text-left text-black">
 			Mail
 		</h1>
@@ -25,10 +29,7 @@
 			>{$t('tmail_description')}</span
 		>
 	</div>
-	<div
-		aria-label="open tmail"
-		class="flex shrink items-center justify-center h-full"
-	>
+	<div aria-label="open tmail" class="flex shrink items-center justify-center h-full">
 		<img src="/images/arrow-forward.svg" alt="next" class="w-6" />
 	</div>
 </button>
