@@ -17,7 +17,7 @@
 		value = val;
 	};
 
-	$: if (value && value.length > 3) {
+	$: if (value && value.length > 7) {
 		valid = isPhoneValid(value);
 		onInput();
 	}
