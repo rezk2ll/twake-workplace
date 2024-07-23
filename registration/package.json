@@ -1,6 +1,6 @@
 {
-	"name": "matrix-registration",
-	"version": "0.0.2",
+	"name": "twake-workplace-registration",
+	"version": "1.0.1",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
