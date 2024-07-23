@@ -55,10 +55,10 @@ export const getApplicationDeepLink = (app: ApplicationType): string => {
 	}
 
 	if (app === 'tmail') {
-		return `${env.PUBLIC_TMAIL_MAGIC_LINK}redirect`;
+		return `${env.PUBLIC_TMAIL_MAGIC_LINK}openApp`;
 	}
 
-	return `${env.PUBLIC_TWAKE_MAGIC_LINK}redirect`;
+	return `${env.PUBLIC_TWAKE_MAGIC_LINK}openApp`;
 };
 
 /**
