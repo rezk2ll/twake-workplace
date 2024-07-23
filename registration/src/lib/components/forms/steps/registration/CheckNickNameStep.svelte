@@ -29,6 +29,15 @@
 		nickNameTaken = false;
 	};
 
+	const transformNickname = () => {
+		nickName = nickName.toLocaleLowerCase();
+	};
+
+	const onInputHandler = () => {
+		invalidateNickNameCheck();
+		transformNickname();
+	};
+
 	const checkNickName = async () => {
 		if (!nickName || nickNamechecked) return;
 
@@ -76,11 +85,11 @@
 		firstName = savedFirstName;
 		lastName = savedLastName;
 		nickName = savedNickname;
-  
+
 		checkNickName();
 	});
 
-	onDestroy(() => { 
+	onDestroy(() => {
 		nickNameStepInfo.set({
 			firstName,
 			lastName,
@@ -137,7 +146,7 @@
 			bind:value={nickName}
 			isInValid={!createUserFormSchema.safeParse({ nickName }).success || nickNameTaken}
 			feedback={validNickName}
-			onInput={invalidateNickNameCheck}
+			onInput={onInputHandler}
 			{loading}
 			{suffix}
 			info={true}
