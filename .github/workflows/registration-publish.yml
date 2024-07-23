@@ -8,13 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Get all src files that have changed
-        id: changed-files
-        uses: tj-actions/changed-files@v41
-        with:
-          files: |
-            packages/registration/**/*
-            .github/workflows/**
+      - id: pre-step
+        shell: bash
+        run: echo "release-version=$(echo ${GITHUB_REF:10})" >> $GITHUB_OUTPUT
       - name: Publish to dockerhub
         uses: elgohr/Publish-Docker-Github-Action@v5
         with:
@@ -24,5 +20,4 @@ jobs:
           workdir: "${{ github.workspace }}/registration"
           context: .
           buildoptions: "-t linagora/twake-matrix-registration -f Dockerfile"
-          tags: "latest"
-
+          tags: "latest,${{ steps.pre-step.outputs.release-version }}"
