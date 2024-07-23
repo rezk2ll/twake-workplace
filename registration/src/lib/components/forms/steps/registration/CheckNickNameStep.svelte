@@ -153,6 +153,7 @@
 			infoTitle={$t('Matrix ID/Email')}
 			infoDescription={$t('username_info_tooltip')}
 			onStopTyping={checkNickName}
+			limitLength
 		/>
 		{#if nickNameTaken === true}
 			<AvailableNicknames
