@@ -81,5 +81,6 @@
   "404-error-message": "Oops! Nous n'avons pas trouvé ce que vous cherchez.",
   "matrix-id-copied": "Identifiant Matrix copié dans le presse-papiers",
   "delete-account": "Supprimer votre compte",
-  "welcome_mobile": "Twake ID est votre accès unique à tous nos services : Chat, Mail et Drive"
+  "welcome_mobile": "Twake ID est votre accès unique à tous nos services : Chat, Mail et Drive",
+  "rate-limit-checkotp": "Vous demandez des vérifications par SMS un peu trop rapidement. \nVeuillez patienter une minute avant de réessayer."
 }
