@@ -1,4 +1,4 @@
-name: Docker Build
+name: Docker Build version
 
 on:
   workflow_call:
@@ -20,4 +20,4 @@ jobs:
           workdir: "${{ github.workspace }}/registration"
           context: .
           buildoptions: "-t linagora/twake-matrix-registration -f Dockerfile"
-          tags: "latest,${{ steps.pre-step.outputs.release-version }}"
+          tags: "latest"

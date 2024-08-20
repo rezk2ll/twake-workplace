@@ -14,7 +14,7 @@ jobs:
   publish:
     needs: [test]
     name: Publish Registration Page
-    uses: ./.github/workflows/registration-publish.yml
+    uses: ./.github/workflows/registration-publish-version.yml
     secrets: inherit
 
   release:

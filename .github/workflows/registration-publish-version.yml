@@ -1,0 +1,23 @@
+name: Docker Build version
+
+on:
+  workflow_call:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - id: pre-step
+        shell: bash
+        run: echo "release-version=$(echo ${GITHUB_REF:10})" >> $GITHUB_OUTPUT
+      - name: Publish to dockerhub
+        uses: elgohr/Publish-Docker-Github-Action@v5
+        with:
+          name: linagora/twake-matrix-registration
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          workdir: "${{ github.workspace }}/registration"
+          context: .
+          buildoptions: "-t linagora/twake-matrix-registration -f Dockerfile"
+          tags: "${{ steps.pre-step.outputs.release-version }}"
