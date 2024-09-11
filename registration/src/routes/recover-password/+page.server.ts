@@ -8,9 +8,8 @@ import { validatePassword } from '$utils/password';
 import { getUserCountry } from '$services/ip';
 
 export const load = (async ({ locals: { session }, getClientAddress, request }) => {
-	const country = await getUserCountry(
-		request.headers.get('x-forwarded-for') || getClientAddress()
-	);
+	const clientAddress = request.headers.get('x-forwarded-for') ?? getClientAddress();
+	const country = (await getUserCountry(clientAddress)).toLocaleLowerCase();
 
 	return {
 		phone: session.data.recovery_phone ?? '',
