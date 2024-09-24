@@ -12,6 +12,7 @@
 	let sendOtpForm: HTMLFormElement;
 	let checkOtpForm: HTMLFormElement;
 	let loading = false;
+	let dispalyMessage = false;
 
 	setInterval(() => {
 		if (resendCounter > 0) resendCounter--;
@@ -34,6 +35,13 @@
 	$: disabled = value.length < 6 || loading;
 	$: timeout = $form?.timeout;
 	$: incorrect = $form?.incorrect;
+
+	$: if (incorrect) {
+		setTimeout(() => {
+			value = '';
+			dispalyMessage = false;
+		}, 2000);
+	}
 </script>
 
 <form
@@ -46,8 +54,8 @@
 
 		return async ({ update }) => {
 			loading = false;
-
 			update();
+			dispalyMessage = true;
 		};
 	}}
 >
@@ -84,7 +92,7 @@
 		<div class="py-4 flex p-4 flex-col items-center justify-center gap-3 self-stretch">
 			<OtpField bind:value />
 			<div class="flex items-center justify-center w-full">
-				{#if incorrect}
+				{#if incorrect && dispalyMessage}
 					<div
 						class="text-xs font-medium leading-4 tracking-tight text-center text-error px-5 pt-1 w-full"
 					>
