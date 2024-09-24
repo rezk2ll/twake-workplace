@@ -88,8 +88,7 @@
 					</button>
 				{/if}
 			</div>
-		{/if}
-		{#if loading}
+		{:else if loading}
 			<div class="p-1 focus:outline-none focus:shadow-outline">
 				<Spin />
 			</div>
