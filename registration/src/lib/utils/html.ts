@@ -7,7 +7,7 @@ type ActionType = {
 /**
  * Click outside svelte action.
  *
- * calls a handler when the user clicks outside 
+ * calls a handler when the user clicks outside
  *
  * @param {HTMLElement} node - The node to listen to.
  * @param {Function} onEventFunction - The function to call when the event is triggered.
@@ -18,6 +18,13 @@ type ActionType = {
 export const clickOutside = (node: HTMLElement, onEventFunction: () => void): ActionType => {
 	const handleClick = (event: Event) => {
 		const path = event.composedPath();
+		const target = event.target as HTMLElement;
+
+		console.log({ target: target });
+
+		if (target.id === 'error') {
+			return;
+		}
 
 		if (!path.includes(node)) {
 			onEventFunction();
