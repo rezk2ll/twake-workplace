@@ -20,6 +20,7 @@
 	let alternativeNicknames: string[] = [];
 	let checkNicknameForm: HTMLFormElement;
 	let formLoading = false;
+	let showAlternativeNicknames = false;
 
 	$: validNickName = nickName.length > 0 && nickNamechecked && !nickNameTaken;
 	$: suffix = `@${env.PUBLIC_SIGNUP_EMAIL_DOMAIN}`;
@@ -27,6 +28,7 @@
 	const invalidateNickNameCheck = () => {
 		nickNamechecked = false;
 		nickNameTaken = false;
+		showAlternativeNicknames = false;
 	};
 
 	const transformNickname = () => {
@@ -69,10 +71,18 @@
 		formLoading ||
 		!nickNamechecked;
 
+	$: if (nickNameTaken) {
+		showAlternativeNicknames = true;
+	}
+
 	const handler = async () => {
 		if (disabled) return;
 
 		checkNicknameForm.requestSubmit();
+	};
+
+	const onError = () => {
+		showAlternativeNicknames = true;
 	};
 
 	onMount(() => {
@@ -149,20 +159,28 @@
 			onInput={onInputHandler}
 			{loading}
 			{suffix}
-			info={true}
+			info
 			infoTitle={$t('Matrix ID/Email')}
 			infoDescription={$t('username_info_tooltip')}
 			onStopTyping={checkNickName}
 			limitLength
+			{onError}
 		/>
-		{#if nickNameTaken === true}
-			<AvailableNicknames
-				bind:value={nickName}
-				nickNames={alternativeNicknames}
-				bind:show={nickNameTaken}
-				bind:checked={nickNamechecked}
-			/>
-		{:else if nickName.length && !createUserFormSchema.safeParse({ nickName }).success}
+		{#if nickNameTaken}
+			<div class="flex justify-start items-start w-full px-4">
+				<span class="text-error text-[11px] not-italic font-medium leading-4 tracking-[0.5px]"
+					>{$t('username_taken')}
+				</span>
+			</div>
+		{/if}
+		<AvailableNicknames
+			bind:value={nickName}
+			nickNames={alternativeNicknames}
+			bind:show={showAlternativeNicknames}
+			bind:checked={nickNamechecked}
+			bind:nickNameTaken
+		/>
+		{#if nickName.length && !createUserFormSchema.safeParse({ nickName }).success}
 			<span class="text-xs font-medium leading-4 tracking-wide text-left text-error px-5"
 				>{$t('invalid Username')}
 			</span>

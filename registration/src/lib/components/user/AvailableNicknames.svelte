@@ -7,28 +7,24 @@
 	export let nickNames: string[];
 	export let show: boolean = true;
 	export let checked: boolean;
+  export let nickNameTaken: boolean;
 
 	const setNickName = (val: string) => {
 		value = val;
 		show = false;
 		checked = true;
+    nickNameTaken = false;
 	};
-
-	$: display = show;
 
 	$: nickNamesList = isMobile() ? nickNames.slice(0, 2) : nickNames;
 </script>
 
-<div class="flex justify-start items-start w-full px-4">
-	<span class="text-error text-[11px] not-italic font-medium leading-4 tracking-[0.5px]"
-		>{$t('username_taken')}
-	</span>
-</div>
-
-{#if nickNames.length > 0 && display}
+{#if nickNames.length > 0 && show}
 	<div
 		use:clickOutside={() => {
-			if (display) display = false;
+			if (show) {
+				show = false;
+			}
 		}}
 		class="flex flex-col lg:absolute lg:z-10 lg:px-4 pt-3 lg:py-3 w-[328px] lg:-mx-1 lg:origin-top-right rounded-2xl bg-white lg:shadow-2xl lg:ring-1 lg:ring-black lg:ring-opacity-5 focus:outline-none"
 	>

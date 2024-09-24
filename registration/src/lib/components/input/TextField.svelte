@@ -22,6 +22,7 @@
 	export let infoDescription: string = '';
 	export let onStopTyping: (() => void) | undefined = undefined;
 	export let limitLength: boolean = false;
+	export let onError: () => void = () => {};
 
 	let inputRef: HTMLInputElement;
 	let showInfo = false;
@@ -76,7 +77,9 @@
 				class="p-1 focus:outline-none focus:shadow-outline overflow-hidden text-disabled-text text-ellipsis whitespace-nowraptext-[17px] font-medium leading-6 tracking-[-0.15000000596046448px] text-left"
 			>
 				{#if notValid}
-					<ErrorIcon />
+					<button type="button" id="error" on:click={onError}>
+						<ErrorIcon />
+					</button>
 				{:else}
 					<button
 						aria-label="info"
