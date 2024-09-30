@@ -30,7 +30,7 @@ export const validateNickName = (nickName: string): boolean => {
 		return false;
 	}
 
-	return bannedUsernames.includes(nickName) === false;
+	return bannedUsernames.includes(nickName.toLocaleLowerCase()) === false;
 };
 
 /**
