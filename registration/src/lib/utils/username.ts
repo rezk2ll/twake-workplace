@@ -1,4 +1,5 @@
 import { createUserFormSchema } from '$lib/schemas/zodSchema';
+import { bannedUsernames } from '$utils/const';
 
 /**
  * Validates a name.
@@ -24,8 +25,13 @@ export const validateName = (name: string): boolean =>
  * @param {string} nickName - the username to check.
  * @returns {boolean} - true if the username is valid, false otherwise.
  */
-export const validateNickName = (nickName: string): boolean =>
-	/^(?!.*\.{2,})[a-zA-Z0-9](?:[a-zA-Z0-9.]{1,28})[a-zA-Z0-9]$/g.test(nickName);
+export const validateNickName = (nickName: string): boolean => {
+	if (/^(?!.*\.{2,})[a-zA-Z0-9](?:[a-zA-Z0-9.]{1,28})[a-zA-Z0-9]$/g.test(nickName) === false) {
+		return false;
+	}
+
+	return bannedUsernames.includes(nickName.toLocaleLowerCase()) === false;
+};
 
 /**
  * validated the nickname using zod schema.
