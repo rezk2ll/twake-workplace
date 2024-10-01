@@ -6,11 +6,11 @@ export const POST: RequestHandler = async ({ request }) => {
 	const body = await request.json();
 	const { firstname, lastname } = body;
 
-	if (!firstname || !lastname) {
+	if (!firstname && !lastname) {
 		throw error(400, 'missing firstname or lastname');
 	}
 
-	if (!validateName(firstname) || !validateName(lastname)) {
+	if (!validateName(firstname) && !validateName(lastname)) {
 		throw error(400, 'Invalid name');
 	}
 
