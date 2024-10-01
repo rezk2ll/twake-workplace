@@ -53,13 +53,21 @@ export const checkNickName = (nickName: string): boolean =>
  */
 export const generateNickNames = (firstName: string, lastName: string): string[] => {
 	const nickNames: string[] = [];
+	const firstPart = firstName.length ? firstName : lastName;
+	const secondPart = lastName.length ? lastName : firstName;
 
-	nickNames.push(`${firstName}.${lastName}`);
-	nickNames.push(`${lastName}.${firstName}`);
-
-	for (let i = 0; i < firstName.length; i++) {
-		nickNames.push(`${firstName.substring(0, i)}${lastName}`);
+	for (let i = 0; i < firstPart.length; i++) {
+		nickNames.push(`${firstPart.substring(0, i)}${secondPart}`);
 	}
 
-	return nickNames.map((v) => v.toLocaleLowerCase()).slice(0, 8);
+	for (let i = 0; i < 4; i++) {
+		nickNames.push(`${firstPart}${i}`);
+	}
+
+	nickNames.push(`${firstPart}${secondPart}`);
+
+	return nickNames
+		.map((v) => v.toLocaleLowerCase())
+		.slice(0, 10)
+		.filter(validateNickName);
 };
