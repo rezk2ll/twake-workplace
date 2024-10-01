@@ -51,7 +51,7 @@
 
 		const result = await isNickNameTaken(nickName);
 
-		if (result && firstName && lastName) {
+		if (result && (firstName || lastName)) {
 			alternativeNicknames = await suggestNickNames(firstName, lastName);
 			nickNamechecked = false;
 		}
