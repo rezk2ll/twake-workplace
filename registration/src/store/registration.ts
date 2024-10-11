@@ -1,6 +1,7 @@
 import type { UserInfo, RegistrationStepType } from '$types';
 import { writable, get } from 'svelte/store';
 import type { ActionData } from '../routes/$types';
+import { activeTab } from '$src/store/context';
 
 const defaultUserInfo = {
 	firstName: '',
@@ -10,6 +11,17 @@ const defaultUserInfo = {
 
 export const form = writable<ActionData>();
 export const registrationStep = writable<RegistrationStepType>('home');
+
+export const rewindStep = () => {
+	const currentTab = get(activeTab);
+
+	if (currentTab === 'login') {
+		registrationStep.set('home');
+		activeTab.set('register');
+	} else {
+		rewindRegistrationStep();
+	}
+};
 
 export const rewindRegistrationStep = () => {
 	const currentStep = get(registrationStep);
