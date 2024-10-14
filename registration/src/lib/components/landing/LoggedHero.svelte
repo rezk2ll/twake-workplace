@@ -1,12 +1,14 @@
 <script lang="ts">
 	import Logo from '$components/logo/Logo.svelte';
-	import { t } from 'svelte-i18n';
+	import { t, locale } from 'svelte-i18n';
+
+  $: direction = $locale === 'ar' ? 'rtl' : 'auto';
 </script>
 
 <div class="flex flex-col space-y-8 font-[Inter] px-10 pt-20 w-full max-w-xl">
 	<Logo />
 	<div class="flex flex-col space-y-5 w-full">
-		<h1 class="text-4xl text-black font-semibold leading-[52px] tracking-normal text-left;">
+		<h1 dir={direction} class="text-4xl text-black font-semibold leading-[52px] tracking-normal text-left rtl:text-right">
 			{$t('logged_hero')}
 		</h1>
 		<div class="hidden lg:flex flex-row gap-[50.2px]">

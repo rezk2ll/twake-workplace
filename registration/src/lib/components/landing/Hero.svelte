@@ -1,8 +1,10 @@
 <script lang="ts">
-	import { t } from 'svelte-i18n';
+	import { t, locale } from 'svelte-i18n';
 	import Logo from '$components/logo/Logo.svelte';
 
 	const currentYear = new Date().getFullYear();
+
+	$: direction = $locale === 'ar' ? 'rtl' : 'auto';
 </script>
 
 <div
@@ -12,7 +14,8 @@
 		<Logo />
 		<div class="flex flex-col space-y-5 h-full 4xl:h-auto pr-10">
 			<h1
-				class="text-[32px] leading-10 not-italic font-semibold lg:leading-[44px] text-center lg:text-left w-full text-disabled-text"
+				dir={direction}
+				class="text-[32px] leading-10 not-italic font-semibold lg:leading-[44px] text-center lg:text-left w-full text-disabled-text rtl:text-right"
 			>
 				{$t('welcome')}
 			</h1>
