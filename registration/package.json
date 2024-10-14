@@ -51,6 +51,7 @@
 		"svelte-i18n": "^4.0.0",
 		"svelte-kit-cookie-session": "^3.4.1",
 		"svelte-num-otp": "^0.1.5",
+		"svelte-persisted-store": "^0.11.0",
 		"svelte-preprocess-react": "^0.17.0",
 		"svelte-tel-input": "^3.3.9",
 		"tslog": "^4.9.2",
