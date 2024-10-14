@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { locale } from 'svelte-i18n'
+import { saveLocale } from '$store/preferences';
 
 export const showLanaguageSelector = writable<boolean>(false);
 
@@ -9,7 +9,7 @@ export const showLanaguageSelector = writable<boolean>(false);
  * @param lang The locale to set.
  */
 export const setI18nLocale = (lang: string) => {
-	locale.set(lang);
+	saveLocale(lang);
   showLanaguageSelector.set(false);
 };
 

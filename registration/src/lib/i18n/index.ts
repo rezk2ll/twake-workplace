@@ -1,5 +1,7 @@
 import { browser } from '$app/environment';
-import { getLocaleFromNavigator, init, register } from 'svelte-i18n';
+import { preferences } from '$store/preferences';
+import { init, register } from 'svelte-i18n';
+import { get } from 'svelte/store';
 
 register('en', () => import('./en.json'));
 register('fr', () => import('./fr.json'));
@@ -11,5 +13,5 @@ const fallbackLocale = 'en';
 
 init({
 	fallbackLocale,
-	initialLocale: browser ? getLocaleFromNavigator() : fallbackLocale
+	initialLocale: browser ? get(preferences).locale  : fallbackLocale
 });
