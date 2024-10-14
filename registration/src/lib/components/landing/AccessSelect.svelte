@@ -10,6 +10,8 @@
 	import MainScreen from '$components/views/MainScreen.svelte';
 	import DownloadBanner from '$components/display/DownloadBanner.svelte';
 	import { getApplicationStoreUrl } from '$utils/product';
+	import LanguageSelector from '$components/display/i18n/LanguageSelector.svelte';
+	import { isMobile } from '$src/lib/utils/device';
 
 	$: showHeader = $registrationStep !== 'home' || $activeTab === 'login';
 	$: appName = getAppName();
@@ -20,9 +22,18 @@
 		$activeTab = 'register';
 		$registrationStep = $registrationStep === 'home' ? 'phone' : $registrationStep;
 	};
+
+	$: displayLanguageSelector =
+		isMobile() === false ||
+		(isMobile() && $registrationStep === 'home' && $activeTab == 'register');
 </script>
 
-<div class="w-full flex flex-col justify-center items-end h-full">
+<div class="w-full flex flex-col justify-center items-end h-full relative">
+	{#if displayLanguageSelector}
+		<div class="absolute top-[37px] right-[17px] lg:right-0">
+			<LanguageSelector />
+		</div>
+	{/if}
 	<div
 		class="w-full flex flex-col md:flex-row justify-end h-full lg:max-h-[668px] large:min-h-[768px] large:max-h-[768px] 2xl:max-h-[768px]"
 	>
