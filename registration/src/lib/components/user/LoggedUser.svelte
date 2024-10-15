@@ -25,7 +25,7 @@
 	<button
 		aria-label="user menu"
 		type="button"
-		class="flex flex-row space-x-2 items-center justify-center"
+		class="flex space-x-2 items-center justify-end"
 		on:click={toggle}
 	>
 		<Avatar />
