@@ -21,12 +21,14 @@
 
 	const switchToRegistration = () => {
 		$activeTab = 'register';
-		$registrationStep = $registrationStep === 'home' ? 'phone' : $registrationStep;
+		$registrationStep = ['home', 'success'].includes($registrationStep)
+			? 'phone'
+			: $registrationStep;
 	};
 
 	$: displayLanguageSelector =
 		isMobile() === false ||
-		(isMobile() && $registrationStep === 'home' && $activeTab == 'register');
+		(isMobile() && ['home', 'success'].includes($registrationStep) && $activeTab == 'register');
 </script>
 
 <div class="w-full flex flex-col justify-center items-end h-full relative">
