@@ -6,7 +6,10 @@
 	export let show: boolean = true;
 
 	$: showNavigation =
-		($registrationStep !== 'home' && $registrationStep !== 'confirmed') || $activeTab === 'login';
+		($registrationStep !== 'home' &&
+			$registrationStep !== 'confirmed' &&
+			$registrationStep !== 'success') ||
+		$activeTab === 'login';
 </script>
 
 <div class="flex flex-row">

@@ -13,19 +13,22 @@
 	import LanguageSelector from '$components/display/i18n/LanguageSelector.svelte';
 	import { isMobile } from '$src/lib/utils/device';
 
-	$: showHeader = $registrationStep !== 'home' || $activeTab === 'login';
+	$: showHeader =
+		($registrationStep !== 'home' && $registrationStep !== 'success') || $activeTab === 'login';
 	$: appName = getAppName();
 	$: appUrl = getApplicationStoreUrl($app)?.url || '';
 	$: showDownloadBanner = $showBanner && $app !== 'default' && appUrl.length > 0;
 
 	const switchToRegistration = () => {
 		$activeTab = 'register';
-		$registrationStep = $registrationStep === 'home' ? 'phone' : $registrationStep;
+		$registrationStep = ['home', 'success'].includes($registrationStep)
+			? 'phone'
+			: $registrationStep;
 	};
 
 	$: displayLanguageSelector =
 		isMobile() === false ||
-		(isMobile() && $registrationStep === 'home' && $activeTab == 'register');
+		(isMobile() && ['home', 'success'].includes($registrationStep) && $activeTab == 'register');
 </script>
 
 <div class="w-full flex flex-col justify-center items-end h-full relative">
