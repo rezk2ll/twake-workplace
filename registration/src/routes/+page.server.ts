@@ -348,7 +348,7 @@ export const actions: Actions = {
 				phone,
 				verified: false,
 				user: nickname,
-				step: 'success'
+				step: 'home'
 			}));
 
 			logger.info('Authenticating registered user');
