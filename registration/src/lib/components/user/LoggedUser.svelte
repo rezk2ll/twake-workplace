@@ -25,7 +25,7 @@
 	<button
 		aria-label="user menu"
 		type="button"
-		class="flex flex-row space-x-2 items-center justify-center"
+		class="flex space-x-2 items-center justify-end"
 		on:click={toggle}
 	>
 		<Avatar />
@@ -46,9 +46,11 @@
 	>
 		<a
 			href="/logout"
-			class="flex items-center gap-5 justify-start p-2.5 text-sm transition-colors duration-200 transform hover:bg-gray-100"
+			class="flex items-center gap-5 justify-start px-3 py-2 text-sm transition-colors duration-200 transform hover:bg-gray-100"
 		>
-			<Logout />
+			<div class="w-5">
+				<Logout />
+			</div>
 
 			<div class="mx-1 grow text-left">
 				<h1 class="text-sm font-semibold">{$t('Logout')}</h1>
