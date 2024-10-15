@@ -93,6 +93,10 @@
 		<div class="text-xs font-medium leading-4 pt-1 tracking-wide text-left text-error px-5">
 			{$t('failed-to-send-otp')}
 		</div>
+	{:else if $recoveryForm?.rate_limit}
+		<div class="text-xs font-medium leading-4 pt-1 tracking-wide text-left text-error px-5">
+			{$t('rate-limit-checkotp')}
+		</div>
 	{/if}
 	<div class="mt-auto py-4">
 		<PrimaryButton ariaLabel="next" {disabled} {handler} loading={formLoading}
