@@ -64,7 +64,7 @@
 			? 'text-error peer-focus:text-error'
 			: 'text-disabled-text peer-focus:text-primary'}">{label}</label
 	>
-	<span class="absolute bg-white inset-y-0 right-0 flex items-center px-1">
+	<span class="absolute bg-transparent inset-y-0 right-0 flex items-center px-1">
 		{#if suffix.length > 0}
 			<div
 				class="p-1 focus:outline-none focus:shadow-outline overflow-hidden text-disabled-text text-ellipsis whitespace-nowrap text-[17px] font-medium leading-6 tracking-[-0.15000000596046448px] text-left"
