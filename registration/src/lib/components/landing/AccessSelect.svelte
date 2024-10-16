@@ -38,7 +38,7 @@
 		</div>
 	{/if}
 	<div
-		class="w-full flex flex-col md:flex-row justify-end h-full lg:max-h-[668px] lg:md-height:max-h-[570px] lg:sm-height:max-h-[550px] lg:xs-height:max-h-[520px] 2xl:max-h-[768px]"
+		class="w-full flex flex-col md:flex-row justify-end h-full lg:max-h-[668px] lg:md-height:max-h-[570px] lg:sm-height:max-h-[550px] lg:xs-height:max-h-[530px] lg:xxs-height:max-h-[520px] 2xl:max-h-[768px]"
 	>
 		<DownloadBanner name={appName} url={appUrl} show={showDownloadBanner} />
 		<div

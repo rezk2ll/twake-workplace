@@ -186,7 +186,7 @@
 			</span>
 		{/if}
 	</div>
-	<div class="flex flex-col lg:mt-auto gap-4 space-y-4 py-4">
+	<div class="flex flex-col lg:mt-auto gap-4 py-4">
 		<PrimaryButton ariaLabel="next" {disabled} {handler} loading={formLoading}
 			>{$t('Next')}</PrimaryButton
 		>

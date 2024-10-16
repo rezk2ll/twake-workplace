@@ -41,6 +41,7 @@ export default {
       "md-height": { raw: '(max-height: 900px)' },
       "sm-height": { raw: '(max-height: 700px)' },
       "xs-height": { raw: '(max-height: 600px)' },
+      "xxs-height": { raw: '(max-height: 500px)' },
       "hight-height": { raw: '(min-height: 901px)' },
     }
   },
