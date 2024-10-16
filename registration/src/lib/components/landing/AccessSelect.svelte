@@ -38,7 +38,7 @@
 		</div>
 	{/if}
 	<div
-		class="w-full flex flex-col md:flex-row justify-end h-full lg:max-h-[668px] md-height:max-h-[550px] sm-height:max-h-[500px] xs-height:max-h-[480px] 2xl:max-h-[768px]"
+		class="w-full flex flex-col md:flex-row justify-end h-full lg:max-h-[668px] lg:md-height:max-h-[570px] lg:sm-height:max-h-[550px] lg:xs-height:max-h-[520px] 2xl:max-h-[768px]"
 	>
 		<DownloadBanner name={appName} url={appUrl} show={showDownloadBanner} />
 		<div
@@ -86,7 +86,7 @@
 					<CheckOtpStep />
 				{:else if $registrationStep === 'nickname'}
 					<div class="flex p-4 justify-center items-center self-stretch">
-						<div class="text-center text-[28px] font-semibold not-italic leading-[36px]">
+						<div class="text-center text-[28px] font-semibold not-italic leading-[36px] md-height:hidden">
 							{$t('Sign up')}
 						</div>
 					</div>
@@ -98,7 +98,7 @@
 				{/if}
 			{:else}
 				<div class="flex p-4 justify-center items-center gap-2 self-stretch">
-					<div class="text-center text-[28px] font-semibold not-italic leading-[36px]">
+					<div class="text-center text-[28px] font-semibold not-italic leading-[36px] md-height:hidden">
 						{$t('Sign in')}
 					</div>
 				</div>
