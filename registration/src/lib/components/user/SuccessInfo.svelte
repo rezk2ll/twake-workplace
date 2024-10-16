@@ -10,7 +10,7 @@
 >
 
 	<div class="w-full text-center text-disabled-text text-[22px] font-semibold leading-7">
-		Congratulations, <br />{`${firstName} ${lastName}`}!
+		{$t('Congratulations')}, <br />{`${firstName} ${lastName}`}!
 	</div>
 
 	<div class="w-full text-center text-[#98a0a8] text-base font-normal leading-normal">
