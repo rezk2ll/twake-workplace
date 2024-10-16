@@ -38,13 +38,13 @@
 		</div>
 	{/if}
 	<div
-		class="w-full flex flex-col md:flex-row justify-end h-full lg:max-h-[668px] large:min-h-[768px] large:max-h-[768px] 2xl:max-h-[768px]"
+		class="w-full flex flex-col md:flex-row justify-end h-full lg:max-h-[668px] md-height:max-h-[550px] sm-height:max-h-[500px] xs-height:max-h-[480px] 2xl:max-h-[768px]"
 	>
 		<DownloadBanner name={appName} url={appUrl} show={showDownloadBanner} />
 		<div
 			class="{showHeader
 				? 'bg-white'
-				: 'lg:bg-white'} shadow-[0px_0px_52px_0px_rgba(0,0,0,0.08)] md:rounded-3xl flex flex-col w-full lg:w-[400px] xl:w-[504px] md:px-[60px] h-full"
+				: 'lg:bg-white'} lg:shadow-[0px_0px_52px_0px_rgba(0,0,0,0.08)] md:rounded-3xl flex flex-col w-full lg:w-[450px] xl:w-[504px] md:px-[60px] h-full"
 		>
 			<FormHeader show={showHeader} />
 			{#if $registrationStep === 'nickname' || $registrationStep === 'phone' || $activeTab === 'login'}

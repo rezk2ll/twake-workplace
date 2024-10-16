@@ -16,7 +16,7 @@
 </script>
 
 <div
-	class="flex flex-col px-4 lg:px-0 h-full w-full xs:pt-[120px] pt-[188px] lg:pt-[169px] pb-[28px] lg:pb-6"
+	class="flex flex-col px-4 lg:px-0 h-full w-full xs:pt-[120px] pt-[188px] lg:pt-[169px] lg-height:pt-[120px] md-height:pt-[100px] sm-height:pt-[50px] xs-height:pt-11 pb-[28px] lg:pb-6 xs-height:pb-5"
 >
 	<div class="flex p-[16px] flex-col items-center gap-[10px] self-stretch">
 		<AppLogo type="landing" />
